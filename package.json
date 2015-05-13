@@ -6,6 +6,9 @@
   "license": "MIT",
   "repository": "iondrive/logger",
   "main": "./lib/logger.js",
+  "typescript": {
+    "definition": "./definition/logger.d.ts"
+  },
   "dependencies": {
     "object-assign": "^2.0.0",
     "safe-json-stringify": "^1.0.3"
@@ -18,7 +21,8 @@
   "files": [
     "LICENSE",
     "README.md",
-    "lib/"
+    "lib/",
+    "definition/"
   ],
   "scripts": {
     "build": "tsglob && tsc",

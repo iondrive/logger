@@ -47,7 +47,7 @@ function serializeError(err: ExtendedError) {
   };
 }
 
-var makeLogFunction = (level: string) => {
+function makeLogFunction(level: string): (...args: any[]) => void {
   var levelIndex = LEVELS.indexOf(level);
   if (levelIndex < minLevelIndex) return () => {};
 
