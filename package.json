@@ -1,0 +1,27 @@
+{
+  "name": "@iondrive/logger",
+  "description": "A 12-factor logging module for Node.js/io.js.",
+  "version": "0.0.1",
+  "author": "Ben Shepheard <ben@iondrive.co.uk>",
+  "license": "MIT",
+  "repository": "iondrive/logger",
+  "main": "./lib/logger.js",
+  "dependencies": {
+    "safe-json-stringify": "^1.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4",
+    "ts-globber": "^0.3.1",
+    "typescript": "^1.5.0-beta"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/"
+  ],
+  "scripts": {
+    "build": "tsglob && tsc",
+    "prepublish": "npm run build",
+    "test": "npm run build && mocha"
+  }
+}
