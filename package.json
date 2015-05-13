@@ -1,7 +1,7 @@
 {
   "name": "@iondrive/logger",
   "description": "A 12-factor logging module for Node.js/io.js.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Ben Shepheard <ben@iondrive.co.uk>",
   "license": "MIT",
   "repository": "iondrive/logger",
