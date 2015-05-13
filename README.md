@@ -35,11 +35,7 @@ log.info(err, 'Something broke');
 
 ### Formatting
 
-All log level methods mirror util.format and thus can use placeholder formatting:
-
-* %s - String.
-* %d - Number (both integer and float).
-* %j - JSON. Replaced with the string '[Circular]' if the argument contains circular references.
+All logger methods use `util.format` and thus can use placeholder formatting.
 
 ```js
 log.debug('hello from %s', 'iondrive'); // 'hello from iondrive'
