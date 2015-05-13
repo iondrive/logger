@@ -2,7 +2,9 @@ var assert = require('assert');
 var path = require('path');
 var os = require('os');
 
-var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
+
+var objectAssign = require('object-assign');
 
 // Assert that two dates are within 100ms of each other
 function assertDateSimilar(a, b) {
@@ -14,13 +16,23 @@ describe('logger', function () {
   var records, first, pid;
 
   function execFixture(name, env) {
+    var options = {
+      env: objectAssign({}, process.env, env)
+    };
+    var fixturePath = path.resolve(__dirname, './fixtures/' + name + '.js');
+
     return function (done) {
-      var child = exec('node ' + path.resolve(__dirname, './fixtures/' + name + '.js'), { env: env }, function (err, stdout) {
-        records = stdout.toString().trim().split('\n').map(JSON.parse);
+      var child = spawn('node', [fixturePath], options);
+      var output = '';
+      child.stdout.on('data', function (data) {
+        output += data.toString();
+      });
+      child.on('close', function () {
+        records = output.trim().split('\n').map(JSON.parse);
         first = records[0];
+        pid = child.pid;
         done();
       });
-      pid = child.pid;
     };
   }
 

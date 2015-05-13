@@ -19,7 +19,7 @@ npm install @iondrive/logger
 
 ### Logging level
 
-The logging level can be set with the environment variable `NODE_LOG_LEVEL` or `LOG_LEVEL`. The value can be one of trace, debug, info, warn, error or fatal. The default level is info.
+The logging level can be set with the environment variable `NODE_LOG_LEVEL` or `LOG_LEVEL`. The value can be one of `trace`, `debug`, `info`, `warn`, `error` or `fatal`. The default level is `info`.
 
 ### Example
 
